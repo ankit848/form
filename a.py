@@ -1,15 +1,13 @@
 import requests
 import random
 import string
+from fake_useragent import UserAgent
 
 def generate_random_email(name):
     random_number = ''.join(random.choices(string.digits, k=5))
     return f"{name}{random_number}@gmail.com"
 
 url = "https://formspree.io/mleydddq"
-
-# Define user agent
-user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
 
 for _ in range(100000):
     name = "hackerdona"
@@ -22,6 +20,8 @@ for _ in range(100000):
         "message": message
     }
 
+    # Generate a random user agent
+    user_agent = UserAgent().random
     headers = {
         "User-Agent": user_agent
     }
