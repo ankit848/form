@@ -32,3 +32,6 @@ for _ in range(2):
         print("Form submitted")
     else:
         print("Failed to submit form")
+        
+    print("Response Content:")
+    print(response.text)
