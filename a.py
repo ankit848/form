@@ -8,6 +8,9 @@ def generate_random_email(name):
 
 url = "https://formspree.io/mleydddq"
 
+# Define user agent
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+
 for _ in range(2):
     name = "hacker"
     email = generate_random_email(name)
@@ -19,7 +22,11 @@ for _ in range(2):
         "message": message
     }
 
-    response = requests.post(url, data=data)
+    headers = {
+        "User-Agent": user_agent
+    }
+
+    response = requests.post(url, data=data, headers=headers)
 
     if response.url == "https://formspree.io/thanks?language=en":
         print("Form submitted")
