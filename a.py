@@ -35,3 +35,4 @@ for _ in range(2):
         
     print("Response Content:")
     print(response.text)
+    print(response.url)
